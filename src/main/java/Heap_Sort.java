@@ -1,8 +1,8 @@
 public class Heap_Sort extends Sort_Algorithm {
     @Override
     public void sort(int[] array) {
-        Heap heap = new Heap(array, 4);
-        heap.heapify();
+        // Todo 06 - Heap Sort
+        // Aufgabe 8
     }
 
     public static class Heap {
@@ -20,41 +20,11 @@ public class Heap_Sort extends Sort_Algorithm {
         }
 
         private void create_heap() {
-            int last_parent_index = calculate_parent_index(data_size - 1);
-            for (int i = last_parent_index; i >= 0; i--) {
-                sift_down(i);
-            }
+            // Aufgabe 5
         }
 
         private void sift_down(int index) {
-            int first_child_index, last_child_index, current_child_index, maximum;
-            while (true) {
-                first_child_index = calculate_child_index(0, index);
-                last_child_index = first_child_index + dimension - 1;
-
-                if (first_child_index >= data_size) {
-                    return;
-                }
-                if (last_child_index >= data_size) {
-                    last_child_index = data_size - 1;
-                }
-
-                maximum = heap[first_child_index];
-                current_child_index = first_child_index;
-                for (int child_index = first_child_index + 1; child_index <= last_child_index; child_index++) {
-                    if (heap[child_index] > maximum) {
-                        maximum = heap[child_index];
-                        current_child_index = child_index;
-                    }
-                }
-
-                if (heap[index] < maximum) {
-                    swap(index, current_child_index);
-                    index = current_child_index;
-                } else {
-                    return;
-                }
-            }
+            // Aufgabe 4
         }
 
         public int[] get_heap() {
@@ -64,32 +34,22 @@ public class Heap_Sort extends Sort_Algorithm {
             return data_size;
         }
         private void swap(int i, int j) {
-            int temp = heap[i];
-            heap[i] = heap[j];
-            heap[j] = temp;
+            // Aufgabe 1
         }
 
         private int calculate_parent_index(int index) {
-            return (index - 1) / dimension;
+            // Aufgabe 2
+            return 0;
         }
         private int calculate_child_index(int childIndex, int nodeIndex) {
-            return dimension * nodeIndex + 1 + childIndex;
+            // Aufgabe 3
+            return 0;
         }
         public void extract_max() {
-            swap(0, data_size - 1);
-            data_size--;
-            sift_down(0);
+            // Aufgabe 6
         }
         public void heapify() {
-            while (data_size > 0) {
-                extract_max();
-            }
+            // Aufgabe 7
         }
-    }
-
-
-    @Override
-    public String get_name() {
-        return "Heap_Sort         ";
     }
 }
