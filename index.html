@@ -44,6 +44,23 @@
             font-weight: bold;
             margin-bottom: -10px;
         }
+        .difficulty {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 8px;
+            border-radius: 1px;
+            opacity: 0.8;
+        }
+        .difficulty.easy {
+            background-color: #66FF66;
+        }
+        .difficulty.medium {
+            background-color: #FFFF66;
+        }
+        .difficulty.hard {
+            background-color: #FF3333;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +68,7 @@
     <h1>任务说明</h1>
 
     <p class="intro">
-        请按顺序完成以下排序任务，可随时通过运行 Sort_Algorithm 文件来测试排
+        请按顺序或按照难度顺序完成以下排序任务，可随时通过运行 Sort_Algorithm 文件来测试排
         序的正确性和效率，在运行之后请用户输入数字 123（可多选）选择参加的测试，
         如果输入的 String 中包含 0 则会画图比较各个算法在测试中的用时
     </p>
@@ -60,22 +77,22 @@
     <p class="intro extra-space">
         基础排序有以下几类
     </p>
-    <h2>1. Bubble Sort</h2>
+    <h2> <span class="difficulty easy"> </span> 1. Bubble Sort</h2>
     <p class="intro">
         冒泡排序：通过相邻元素比较和交换，将较大元素逐步“冒泡”到序列末尾
     </p>
-    <h2>2. Selection Sort</h2>
+    <h2> <span class="difficulty easy"> </span> 2. Selection Sort</h2>
     <p class="intro">
         选择排序：每次从未排序部分选择最小元素放到已排序序列开头
     </p>
-    <h2>3. Insertion Sort</h2>
+    <h2> <span class="difficulty easy"> </span> 3. Insertion Sort</h2>
     <p class="intro">
         插入排序：从第二个元素开始，将当前元素插入到已排序序列的适当位置。
         由于在后续的优化排序中还会借用到这种排序方式，所以我擅自对它进行了
         功能拓展，目标是可以对 array 的特定片段进行排序，这也是函数变量里
         还额外有 start 和 end 的原因
     </p>
-    <h2>4. Count Sort</h2>
+    <h2> <span class="difficulty easy"> </span> 4. Count Sort</h2>
     <p class="intro">
         计数排序：通过统计每个元素出现次数确定其位置，适合整数且范围有限的场景。
         在这个任务中我建议先编写一个对于特定范围的整数数组的排序，也就是假设数组里的
@@ -88,14 +105,14 @@
     <p class="intro extra-space">
         高级排序有以下几类
     </p>
-    <h2>5. Merge Sort</h2>
+    <h2> <span class="difficulty medium"> </span> 5. Merge Sort</h2>
     <p class="intro">
         归并排序：将序列递归拆分后再合并成有序序列。我建议先编写 merge 函数，假设两个相邻
         片段 start ~ middle 和 middle+1 ~ end 已经有序，用 merge 将它们合并成一个
         有序片段，然后再编写排序的递归部分，将当前数组分割为左右两部分，然后对两侧分别用
         merge-sort, 这是两个片段已经各自有序，我们可以把它们合并
     </p>
-    <h2>6. Heap Sort</h2>
+    <h2> <span class="difficulty hard"> </span> 6. Heap Sort</h2>
     <p class="intro">
         堆排序：通过构建大顶堆（Max-Heap），然后不断将顶端元素交换到末尾，被交换到末尾的元素
         将不再被视为有效，也就是不再属于真正的 Heap 的一部分。我建议先编写 Class Heap，
@@ -124,7 +141,7 @@
         这意味着它已经固定住了，所以当我们对所有元素进行了 extract-max 以后，heap 作为一个数组本身
         就已经是有序的了，这就实现了不需要额外空间的原地排序，还节省了 arraycopy 的时间
     </p>
-    <h2>7. Quick Sort</h2>
+    <h2> <span class="difficulty medium"> </span> 7. Quick Sort</h2>
     <p class="intro">
         快速排序：选定基准值后将数组分割为两部分，左侧小于基准，右侧大于基准，然后对两侧分别进行快速排序。
         具体的代码实现方面，我们可以选取 start 为基准点（pivot），而 start 这一位上的值为基准值（pivot
@@ -140,11 +157,11 @@
     <p class="intro extra-space">
         优化排序有以下几类
     </p>
-    <h2>8. Merge Sort X</h2>
+    <h2> <span class="difficulty medium"> </span> 8. Merge Sort X</h2>
     <p class="intro">
         优化归并排序，在数组较小的情况下转入插入排序
     </p>
-    <h2>9. Quick Sort X</h2>
+    <h2> <span class="difficulty hard"> </span> 9. Quick Sort X</h2>
     <p class="intro">
         优化快速排序，优化如下 <br>
         1. 在数组大小小于16的时候改用插入排序，对于小数组插入排序更节省空间 <br>
@@ -156,7 +173,7 @@
         就是用循环包裹整个函数，然后在单次循环结束后更新 start 或者 end 的值，被分割出去的
         另一部分调用递归
     </p>
-    <h2>10. Dual Quick Sort</h2>
+    <h2> <span class="difficulty hard"> </span> 10. Dual Quick Sort</h2>
     <p class="intro">
         双轴快速排序，优化如下 <br>
         1. 使用两个轴从两侧向内逼近，分割出三个区域分别处理 <br>
