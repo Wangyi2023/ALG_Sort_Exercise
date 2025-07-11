@@ -4,8 +4,8 @@
 
  基础排序有以下几类
  它们在处理少量数据，或者特定类型的数据时有良好表现
- 1.  Selection-Sort    选择排序
- 2.  Bubble-Sort       冒泡排序
+ 1.  Bubble-Sort       冒泡排序
+ 2.  Selection-Sort    选择排序
  3.  Insertion-Sort    插入排序
  4.  Count-Sort        计数排序
 
@@ -24,9 +24,10 @@
  双轴排序通过在优化插入排序的基础上更改为两个轴，小幅减少比较次数，大幅减少交换次数，在 Java内置
  排序中也使用了这一优化策略，但由于不稳定只将它用于对整型浮点型这样的数据排序，而在 Java内置排序
  中还运用了动态随机采样来防御最坏情况，并在检测到递归深度过大时切换到堆排序
- 8.  Quick-Sort-X      优化快速排序
- 9.  Dual-Quick-Sort   双轴快速排序
- 10. Java-Sort         Java 内置排序
+ 8.  Merge-Sort-X      优化归并排序
+ 9.  Quick-Sort-X      优化快速排序
+ 10. Dual-Quick-Sort   双轴快速排序
+ 11. Java-Sort         Java 内置排序
 
  */
 
